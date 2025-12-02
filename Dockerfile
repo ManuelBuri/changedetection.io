@@ -35,7 +35,7 @@ ENV OPENSSL_INCLUDE_DIR="/usr/include/openssl"
 # Additional environment variables for cryptography Rust build
 ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 # FIX 1: Changed id=pip to id=s/YOUR_RAILWAY_SERVICE_ID-pip
-RUN --mount=type=cache,id=s/abee41af-406c-469e-955a-1074e7dff165-pip,sharing=locked,target=/tmp/pip-cache \
+RUN --mount=type=cache,id=s/bb8f4254-6332-4ee3-b774-821ff15d20b6-pip,sharing=locked,target=/tmp/pip-cache \
   pip install \
   --prefer-binary \
   --extra-index-url https://www.piwheels.org/simple \
@@ -49,7 +49,7 @@ RUN --mount=type=cache,id=s/abee41af-406c-469e-955a-1074e7dff165-pip,sharing=loc
 # Excluded this package from requirements.txt to prevent arm/v6 and arm/v7 builds from failing
 # https://github.com/dgtlmoon/changedetection.io/pull/1067 also musl/alpine (not supported)
 # FIX 2: Changed id=pip to id=s/YOUR_RAILWAY_SERVICE_ID-pip
-RUN --mount=type=cache,id=s/abee41af-406c-469e-955a-1074e7dff165-pip,sharing=locked,target=/tmp/pip-cache \
+RUN --mount=type=cache,id=s/bb8f4254-6332-4ee3-b774-821ff15d20b6-pip,sharing=locked,target=/tmp/pip-cache \
   pip install \
   --prefer-binary \
   --cache-dir=/tmp/pip-cache \
