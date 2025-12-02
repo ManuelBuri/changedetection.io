@@ -62,16 +62,17 @@ RUN --mount=type=cache,id=s/bb8f4254-6332-4ee3-b774-821ff15d20b6-pip,sharing=loc
 FROM python:${PYTHON_VERSION}-slim-bookworm
 LABEL org.opencontainers.image.source="https://github.com/dgtlmoon/changedetection.io"
 
+# Ensure ONLY standard spaces/tabs are used for alignment
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    libxslt1.1 \
-    # For presenting price amounts correctly in the restock/price detection overview
-    locales \
-    # For pdftohtml
-    poppler-utils \
-    # favicon type detection and other uses
-    file \
-    zlib1g \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    libxslt1.1 \
+    # For presenting price amounts correctly in the restock/price detection overview
+    locales \
+    # For pdftohtml
+    poppler-utils \
+    # favicon type detection and other uses
+    file \
+    zlib1g \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 
 # https://stackoverflow.com/questions/58701233/docker-logs-erroneously-appears-empty-until-container-stops
